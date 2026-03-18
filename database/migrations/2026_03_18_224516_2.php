@@ -11,15 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bolsas', function (Blueprint $table) {
-            $table->id();
-            $table->string('Nombre');
-            $table->decimal('Meta', 8, 2);
-            $table->date('fecha_meta');
-            $table->string('Descripcion');
-            $table->decimal('monto', 8, 2);
-            $table->timestamps();
-        });
+        //
     }
 
     /**
