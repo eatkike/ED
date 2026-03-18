@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bolsa;
 use Illuminate\Http\Request;
 
 class BolsaController extends Controller
@@ -53,6 +54,7 @@ class BolsaController extends Controller
      */
     public function edit(string $id)
     {
+        $bolsa = Bolsa::findOrFail($id);
         return view('bolsas.edit');
     }
 
@@ -69,6 +71,7 @@ class BolsaController extends Controller
             'Monto Actual' => 'required|numeric',
         ]);
 
+        $bolsa = Bolsa::findOrFail($id);
         $bolsa->update($request->all());
         return redirect()->route('bolsas.index')->with('success', 'Bolsa actualizada exitosamente!');
 
