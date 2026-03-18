@@ -6,6 +6,10 @@
     <title>Registro</title>
 </head>
 <body>
+
+    @extends('layouts.app')
+
+    @section('content')
     <h1>REGISTRAR BOLSA DE AHORRO</h1>
 
     <form action="{{ route('bolsa.store') }}" method="POST">
@@ -22,6 +26,6 @@
 
         <button type="submit">Registrar</button>
     </form>
-    
+@endsection
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bolsa;
 use Illuminate\Http\Request;
 
 class BolsaController extends Controller
@@ -44,7 +45,8 @@ class BolsaController extends Controller
      */
     public function show(string $id)
     {
-        //
+          //$bolsas = Bolsa::all();
+      //  return view('bolsas.index', compact('bolsas'));
     }
 
     /**
@@ -52,6 +54,7 @@ class BolsaController extends Controller
      */
     public function edit(string $id)
     {
+        $bolsa = Bolsa::findOrFail($id);
         return view('bolsas.edit');
     }
 
@@ -68,6 +71,7 @@ class BolsaController extends Controller
             'Monto Actual' => 'required|numeric',
         ]);
 
+        $bolsa = Bolsa::findOrFail($id);
         $bolsa->update($request->all());
         return redirect()->route('bolsas.index')->with('success', 'Bolsa actualizada exitosamente!');
 
@@ -76,9 +80,12 @@ class BolsaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+ public function destroy($id)
     {
+        $bolsa = Bolsa::findOrFail($id);
         $bolsa->delete();
-        return redirect()->route('bolsas.index')->with('success', 'Bolsa eliminada exitosamente!');
+
+        return redirect()->route('bolsas.index')
+            ->with('success', 'Bolsa eliminada correctamente');
     }
 }
