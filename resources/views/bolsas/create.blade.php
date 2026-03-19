@@ -10,7 +10,7 @@
     @extends('layouts.app')
 
     @section('content')
-    <h1>REGISTRAR BOLSA DE AHORRO</h1>
+    <h1>Crear BOLSA DE AHORRO</h1>
 
     <form action="{{ route('bolsas.store') }}" method="POST">
         @csrf
@@ -31,6 +31,8 @@
         <input type="number" name="monto" id="monto" required><br><br>
 
         <button type="submit">Registrar</button>
+        <button type="button" onclick="window.history.back()">Cancelar</button>
+
     </form>
 @endsection
 </body>
