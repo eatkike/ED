@@ -43,10 +43,10 @@
             <tr>
                 <!-- nombre de la BD -->
                 <td> {{$bolsa->id }} </td>
-                <td> {{$bolsa->nombre }} </td>
-                <td> {{$bolsa->meta }} </td>
+                <td> {{$bolsa->Nombre }} </td>
+                <td> {{$bolsa->Meta }} </td>
                 <td> {{$bolsa->fecha_meta }} </td>
-                <td> {{$bolsa->descripcion }} </td>
+                <td> {{$bolsa->Descripcion }} </td>
                 <td> {{$bolsa->monto }} </td>
                 <td>
                     <a href="{{ route('bolsas.edit', $bolsa) }}">

@@ -34,11 +34,11 @@ class BolsaController extends Controller
     public function store(Request $request)
     {
         Bolsa::create([
-            'Nombre' => $request->input('Nombre'),
-            'Meta' => $request->input('Meta'),
-            'Fecha de Meta' => $request->input('Fecha de Meta'),
-            'Descripcion' => $request->input('Descripcion'),
-            'Monto Actual' => $request->input('Monto Actual'),
+            'Nombre' => $request->input('nombre'),
+            'Meta' => $request->input('meta'),
+            'fecha_meta' => $request->input('fecha_meta'),
+            'Descripcion' => $request->input('descripcion'),
+            'monto' => $request->input('monto'),
         ]);
 
         return redirect()->route('bolsas.index')->with('success', 'Bolsa registrada exitosamente!');
@@ -68,11 +68,11 @@ class BolsaController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'Nombre' => 'required',
-            'Meta' => 'required|numeric',
-            'Fecha de Meta' => 'required|date',
-            'Descripcion' => 'required',
-            'Monto Actual' => 'required|numeric',
+            'nombre' => 'required',
+            'meta' => 'required|numeric',
+            'fecha_meta' => 'required|date',
+            'descripcion' => 'required',
+            'monto' => 'required|numeric',
         ]);
 
         $bolsa = Bolsa::findOrFail($id);

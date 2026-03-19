@@ -21,6 +21,9 @@
         <br>
 
         <button type="submit" class="btn btn-success"> Iniciar Sesión </button>
+
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ route('registro') }}'">Registrarse</button>
+    
     
     </form>
 
