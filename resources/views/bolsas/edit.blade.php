@@ -1,41 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EDITAR BOLSA DE AHORRO</title>
-</head>
-<body>
+@extends('layouts.app')
 
-    @extends('layouts.app')
-    @section('content')
-    <h1>EDITAR BOLSA DE AHORRO DE: {{$bolsa->Nombre}}</h1>
+@section('content')
 
-    <form action="{{ route('bolsas.update', $bolsa)}}" method="POST">
-    
-    @csrf
-    @method('PUT')
+    <h1>Editar Bolsa de Ahorro: {{ $bolsa->Nombre }}</h1>
 
-    <input requiere type="text" name="Nombre" value="{{ $bolsa->Nombre }}" class="form-control">
-    <br>
+    <form action="{{ route('bolsas.update', $bolsa->id) }}" method="POST">
+        @csrf
+        @method('PUT')
 
-    <input requiere type="number" name="Meta"  value="{{ $bolsa->Meta }}" class="form-control">
-    <br>
+        <div class="mb-3">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="Nombre" name="Nombre" value="{{ $bolsa->Nombre }}" required>
+        </div>
 
-    <input require type="date" name="fecha_meta" value="{{ $bolsa->fecha_meta }}" class="form-control">
-    <br>
+        <div class="mb-3">
+            <label for="Meta" class="form-label">Meta</label>
+            <input type="number" class="form-control" id="Meta" name="Meta" value="{{ $bolsa->Meta }}" required>
+        </div>
 
-    <input requiere type="text" name="Descripcion" value="{{ $bolsa->Descripcion }}" class="form-control">
-    <br>
+        <div class="mb-3">
+            <label for="fecha_meta" class="form-label">Fecha de Meta</label>
+            <input type="date" class="form-control" id="fecha_meta" name="fecha_meta" value="{{ $bolsa->fecha_meta }}" required>
+        </div>
 
-    <input requiere type="number" name="monto" value="{{$bolsa->monto}}" class="form-control">
-    <br>
+        <div class="mb-3">
+            <label for="Descripcion" class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="Descripcion" name="Descripcion" value="{{ $bolsa->Descripcion }}" required>
+        </div>
 
-    <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
+        <div class="mb-3">
+            <label for="monto" class="form-label">Monto Actual</label>
+            <input type="number" step="0.01" class="form-control" id="monto" name="monto" value="{{ $bolsa->monto }}" required>
+        </div>  
+
+        <button type="submit" class="btn btn-primary">
+            <i class="fa-regular fa-floppy-disk"></i> Actualizar
+        </button>
+      
+        <button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancelar</button>
 
     </form>
-    @endsection
 
+    <div class="d-flex justify-content-end mb-2">
+        <a href="{{ route('bolsas.index') }}" class="btn btn-danger">Regresar</a>
+    </div>
 
-</body>
-</html>
+@endsection

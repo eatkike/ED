@@ -68,15 +68,21 @@ class BolsaController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'nombre' => 'required',
-            'meta' => 'required|numeric',
+            'Nombre' => 'required',
+            'Meta' => 'required|numeric',
             'fecha_meta' => 'required|date',
-            'descripcion' => 'required',
+            'Descripcion' => 'required',
             'monto' => 'required|numeric',
         ]);
 
         $bolsa = Bolsa::findOrFail($id);
-        $bolsa->update($request->all());
+        
+        $bolsa->Nombre = $request->input('Nombre');
+        $bolsa->Meta = $request->input('Meta');
+        $bolsa->fecha_meta = $request->input('fecha_meta');
+        $bolsa->Descripcion = $request->input('Descripcion');
+        $bolsa->monto = $request->input('monto');
+        $bolsa->save();
         return redirect()->route('bolsas.index')->with('success', 'Bolsa actualizada exitosamente!');
 
     }
