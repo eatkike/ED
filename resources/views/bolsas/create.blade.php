@@ -14,13 +14,19 @@
 
     <form action="{{ route('bolsas.store') }}" method="POST">
         @csrf
-        <label for="usuario_id">Usuario:</label>
-        <select name="usuario_id" id="usuario_id" required>
-            @foreach($usuarios as $usuario)
-                <option value="{{ $usuario->id }}">{{ $usuario->nombre }}</option>
-            @endforeach
+        <label>Usuario:</label>
+        <input type="text" value="{{ Auth::user()->name }}" disabled>
+            
         </select><br><br>
-
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" required><br><br>
+        <label for="meta">Meta:</label>
+        <input type="number" name="meta" id="meta" required><br><br>
+        <label for="fecha_meta">Fecha de Meta:</label>
+        <input type="date" name="fecha_meta" id="fecha_meta" required><br><br>
+        <label for="descripcion">Descripción:</label>
+        <input type="text" name="descripcion" id="descripcion" required><br><br>
+    
         <label for="monto">Monto:</label>
         <input type="number" name="monto" id="monto" required><br><br>
 
