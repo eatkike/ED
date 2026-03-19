@@ -22,13 +22,13 @@
     <input requiere type="number" name="Meta"  value="{{ $bolsa->Meta }}" class="form-control">
     <br>
 
-    <input require type="date" name="Fecha de Meta" value="{{ $bolsa->'Fecha de Meta' }}" class="form-control">
+    <input require type="date" name="fecha_meta" value="{{ $bolsa->fecha_meta }}" class="form-control">
     <br>
 
     <input requiere type="text" name="Descripcion" value="{{ $bolsa->Descripcion }}" class="form-control">
     <br>
 
-    <input requiere type="number" name="Monto Actual" value="{{$bolsa->'Monto Actual'}}" class="form-control">
+    <input requiere type="number" name="monto" value="{{$bolsa->monto}}" class="form-control">
     <br>
 
     <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>

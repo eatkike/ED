@@ -4,9 +4,7 @@ use App\Http\Controllers\BolsaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AuthController::class, 'loginForm'])->name('home');
 
 Route::resource('bolsas', BolsaController::class);
 Route::get('/bolsas/{id}/edit', [BolsaController::class, 'edit'])->name('bolsas.edit');

@@ -30,7 +30,7 @@
     <table class="table table-striped table-hover">
         <thead>
             <th>ID</th>
-            <th>NOMBRE</th>
+            <th>NOMBRE DE LA BOLSA</th>
             <th>META</th>
             <th>FECHA DE META</th>
             <th>DESCRIPCION</th>
