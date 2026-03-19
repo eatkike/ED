@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Bolsa;
 use Illuminate\Http\Request;
+use App\Models\User;
+
 
 class BolsaController extends Controller
 {
@@ -21,7 +23,9 @@ class BolsaController extends Controller
      */
     public function create()
     {
-        return view('bolsas.create');
+        $usuarios = User::all();
+        return view('bolsas.create', compact('usuarios'));
+        
     }
 
     /**
@@ -55,7 +59,7 @@ class BolsaController extends Controller
     public function edit(string $id)
     {
         $bolsa = Bolsa::findOrFail($id);
-        return view('bolsas.edit');
+        return view('bolsas.edit' , compact('bolsa'));
     }
 
     /**

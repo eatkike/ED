@@ -6,13 +6,16 @@
     <title>Registro de bolsas</title>
 </head>
 <body>
+    @extends('layouts.app')
+    @section('content')
+
     <h1>VER BOLSAS</h1>
     <br>
 
     <div class="d-flex  justify-content-end mb-2">
-        <a href="{{ route('libros.create') }}">
+        <a href="{{ route('bolsas.create') }}">
             <button class="btn btn-success me-3 mb-3">
-                <i class="fa-solid fa-plus"></i>Nuevo libro
+                <i class="fa-solid fa-plus"></i>Nueva bolsa
             </button>
         </a>
         <form action="{{ route('cerrar') }}" method="post">
@@ -42,9 +45,9 @@
                 <td> {{$bolsa->id }} </td>
                 <td> {{$bolsa->nombre }} </td>
                 <td> {{$bolsa->meta }} </td>
-                <td> {{$bolsa->'fecha de meta'}} </td>
+                <td> {{$bolsa->fecha_meta }} </td>
                 <td> {{$bolsa->descripcion }} </td>
-                <td> {{$bolsa->'monto actual' }} </td>
+                <td> {{$bolsa->monto }} </td>
                 <td>
                     <a href="{{ route('bolsas.edit', $bolsa) }}">
                         <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
@@ -62,6 +65,8 @@
             </tr>
 
             @endforeach
+            @endsection
+            
 
         </tbody>
 

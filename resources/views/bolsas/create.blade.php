@@ -12,7 +12,7 @@
     @section('content')
     <h1>REGISTRAR BOLSA DE AHORRO</h1>
 
-    <form action="{{ route('bolsa.store') }}" method="POST">
+    <form action="{{ route('bolsas.store') }}" method="POST">
         @csrf
         <label for="usuario_id">Usuario:</label>
         <select name="usuario_id" id="usuario_id" required>
