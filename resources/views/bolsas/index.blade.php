@@ -6,6 +6,9 @@
     <title>Registro de bolsas</title>
 </head>
 <body>
+    @extends('layouts.app')
+    @section('content')
+
     <h1>VER BOLSAS</h1>
     <br>
 
@@ -62,6 +65,8 @@
             </tr>
 
             @endforeach
+            @endsection
+            
 
         </tbody>
 

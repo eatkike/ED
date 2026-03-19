@@ -6,6 +6,9 @@
     <title>EDITAR BOLSA DE AHORRO</title>
 </head>
 <body>
+
+    @extends('layouts.app')
+    @section('content')
     <h1>EDITAR BOLSA DE AHORRO DE: {{$bolsa->Nombre}}</h1>
 
     <form action="{{ route('bolsas.update', $bolsa)}}" method="POST">
@@ -29,6 +32,9 @@
     <br>
 
     <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i>Guardar</button>
+
+    </form>
+    @endsection
 
 
 </body>
